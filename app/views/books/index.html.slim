@@ -1,2 +1,21 @@
-h1 Books#index
-p Find me in app/views/books/index.html.slim
+h1.page-header Books#index
+p URL: #{request.original_fullpath}
+
+h3 With RailsController:
+.rails-books
+  - @books.each do |b|
+    .book
+      h4.title = b.name
+      p.description = b.description
+      hr
+
+.angular-books ng-controller="BookController"
+  h3
+    | {{method}}
+  .somediv ng-repeat="book in books"
+    .book
+      h4.title
+        | {{book.name}}
+      p.description
+        | {{book.description}}
+      hr

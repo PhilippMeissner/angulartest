@@ -1,3 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+app = angular.module("app", [])
+app.controller('BookController', [
+  '$scope', 'Book', ($scope, Book)->
+    $scope.method = "With AngularJS"
+    Book.getAll()
+      .success (data) ->
+        $scope.books = data
+      .error (data) ->
+        console.log "FKR"
+])
+
+app.factory('Book', [
+  '$http', ($http)->
+    class Book
+      @getAll: ->
+        $http.get('/books/index.json')
+])
