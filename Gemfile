@@ -40,6 +40,11 @@ gem 'bourbon'
 
 gem "minitest-rails"
 
+# AngularJS
+gem 'angularjs-rails'
+gem 'ng-rails-csrf'
+gem 'angularjs-rails-resource'
+
 group :development do
   gem 'guard-rails'
   gem 'guard-livereload'
@@ -47,10 +52,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-end
-
-group :production do 
-  gem 'mysql2'
 end
 
 # Simple Form
