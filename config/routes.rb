@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  match '*path' => 'static#home', via: [:get, :post]
-  root 'static#home'
+  get 'books/index'
+
+  root 'books#index'
 end
